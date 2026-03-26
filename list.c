@@ -50,8 +50,11 @@ void * firstList(List * list) { //retorna dato head y actualiza current para que
     return dato;
 }
 
-void * nextList(List * list) {
-    return NULL;
+void * nextList(List * list) { //retorna dato a continuacion de current y actualiza current
+    Node* sgte_de_current= list->current->next;
+    void* dato = sgte_de_current->data;
+    list->current= sgte_de_current;
+    return dato;
 }
 
 // 3. Programe las funciones void * lastList(List * list) y void * prevList(List * list).
