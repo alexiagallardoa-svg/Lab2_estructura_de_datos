@@ -97,14 +97,14 @@ void * popCurrent(List * list) {
     if (curr == list->head){
         Node* der = curr->next;
         der->prev = NULL;
-        free(curr);
+        list->current= der;
         return dato;
     }    
     //Curr final (tail)
     else if (curr == list->tail){
         Node* izq = curr->prev;
         izq->next = NULL;
-        free(curr);
+        list->current= NULL;
         return dato;
     }
     //Curr ni final ni inicio
@@ -112,7 +112,7 @@ void * popCurrent(List * list) {
     Node* der = curr->next;
     izq->next= der;
     der->prev= izq;
-    free(curr);
+    list->current= der;
     return dato;
 }
 
