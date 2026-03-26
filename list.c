@@ -44,6 +44,9 @@ List * createList() {
 //   - La segunda función retorna el dato del nodo a continuación del current y actualiza el current para que apunte a ese nodo.
 
 void * firstList(List * list) { //retorna dato head y actualiza current para que apunte a head
+    if (list->head == NULL){
+        return NULL;
+    }
     Node* cab = list->head;
     void* dato = cab->data;
     list->current= cab;
