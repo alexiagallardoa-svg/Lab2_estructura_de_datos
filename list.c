@@ -105,6 +105,7 @@ void * popCurrent(List * list) {
     else if (curr == list->tail){
         Node* izq = curr->prev;
         izq->next = NULL;
+        list->tail= izq;
         list->current= NULL;
         return dato;
     }
