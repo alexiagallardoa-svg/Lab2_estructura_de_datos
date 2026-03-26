@@ -59,7 +59,8 @@ void * nextList(List * list) { //retorna dato a continuacion de current y actual
     if (list->current == list->tail){
         return NULL;
     }
-    Node* sgte_de_current= list->current->next;
+    Node* curr = list->current;
+    Node* sgte_de_current= curr->next;
     void* dato = sgte_de_current->data;
     list->current= sgte_de_current;
     return dato;
