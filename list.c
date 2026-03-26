@@ -32,6 +32,7 @@ Node * createNode(void * data) {
 // Recuerda reservar memoria al puntero usando malloc o calloc.
 
 List * createList() {
+    
      return NULL;
 }
 
@@ -90,11 +91,25 @@ void * popBack(List * list) {
 
 void * popCurrent(List * list) {
     Node* curr = list->current;
-    Node* izq = curr->prev;
-    Node* der = curr->next;
     //guardar dato de current
     void* dato = curr->data;
-    //eliminar current
+    //Curr inicio (head)
+    if (curr == list->head){
+        Node* der = curr->next;
+        der->prev = NULL;
+        free(curr);
+        return dato;
+    }    
+    //Curr final (tail)
+    else if (curr == list->tail){
+        Node* izq = curr->prev;
+        izq->next = NULL;
+        free(curr);
+        return dato;
+    }
+    //Curr ni final ni inicio
+    Node* izq = curr->prev;
+    Node* der = curr->next;
     izq->next= der;
     der->prev= izq;
     free(curr);
