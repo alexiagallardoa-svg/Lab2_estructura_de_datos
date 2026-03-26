@@ -56,7 +56,7 @@ void * firstList(List * list) { //retorna dato head y actualiza current para que
 
 void * nextList(List * list) { //retorna dato a continuacion de current y actualiza current
     //CASO CURRENT = TAIL
-    if (list->current== list->tail){
+    if (list->current == list->tail){
         return NULL;
     }
     Node* sgte_de_current= list->current->next;
