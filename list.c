@@ -101,6 +101,7 @@ void pushFront(List * list, void * data) { //agrega dato al inicio | createNode(
     //CASO HEAD = NULL
     if (list->head == NULL){
         list->head= nuevo;
+        list->tail= nuevo;
         return;
     }
     Node* cab= list->head;
