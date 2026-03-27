@@ -126,6 +126,7 @@ void pushCurrent(List * list, void * data) { //agrega dato dsps de current
     if (curr== list->tail){
         curr->next= nuevo;
         nuevo->prev= curr;
+        list->tail= nuevo;
         return;
     }
     nuevo->prev= curr;
