@@ -43,18 +43,19 @@ List * createList() {
 //   - La primera retorna el dato del primer nodo de la lista (head) y actualiza el current para que apunte a ese nodo.
 //   - La segunda función retorna el dato del nodo a continuación del current y actualiza el current para que apunte a ese nodo.
 
-void * firstList(List * list) { //retorna dato head y actualiza current para que apunte a head
+void * firstList(List * list) { 
     //CASO HEAD = NULL
     if (list->head == NULL){
         return NULL;
     }
+    //CASO HEAD EXISTE
     Node* cab = list->head;
     void* dato = cab->data;
     list->current= cab;
     return dato;
 }
 
-void * nextList(List * list) { //retorna dato a continuacion de current y actualiza current
+void * nextList(List * list) { 
     //CASO CURRENT = NULL
     if (list->current == NULL){
         return NULL;
@@ -63,6 +64,7 @@ void * nextList(List * list) { //retorna dato a continuacion de current y actual
     if (list->current == list->tail){
         return NULL;
     }
+    //CASO CURRENT EXISTE (Y PUEDE QUE ESTÉ EN HEAD)
     Node* sgte_de_current= list->current->next;
     void* dato = sgte_de_current->data;
     list->current= sgte_de_current;
@@ -73,21 +75,23 @@ void * nextList(List * list) { //retorna dato a continuacion de current y actual
 //   - La primera retorna el dato del último elemento en la lista y actualiza el current al nodo correspondiente.
 //   - La segunda función retorna el dato del nodo anterior a current y actualiza el current para que apunte a ese nodo.
 
-void * lastList(List * list) { //retorna dato tail, actualiza current a cola
+void * lastList(List * list) { 
     //CASO TAIL = NULL
     if (list->tail == NULL) return NULL;
+    //CASO TAIL EXISTE
     Node* cola = list->tail;
     void* dato = cola->data;
     list->current= cola;
     return dato;
 }
 
-void * prevList(List * list) { //retorna dato anterior a current y actualiza current para q apunte ahí 
+void * prevList(List * list) { 
     //CASO CURRENT = NULL
     if (list->current== NULL) return NULL;
     Node* curr= list->current;
     //CASO ANTERIORC = NULL
     if (curr->prev==NULL) return NULL;
+    //CASO AMBOS EXISTEN 
     void* dato = curr->prev->data;
     list->current= curr->prev;
     return dato;
@@ -96,7 +100,7 @@ void * prevList(List * list) { //retorna dato anterior a current y actualiza cur
 // 4. Programe la función void pushFront(List * list, void * data), la cual agrega un dato al comienzo de la lista.
 // Puede utilizar la función Node* createNode(void * data) la cual crea, incializa y retorna un nodo con el dato correspondiente.
 
-void pushFront(List * list, void * data) { //agrega dato al inicio | createNode(dato)
+void pushFront(List * list, void * data) { 
     Node* nuevo = createNode(data);
     //CASO HEAD = NULL
     if (list->head == NULL){
@@ -104,6 +108,7 @@ void pushFront(List * list, void * data) { //agrega dato al inicio | createNode(
         list->tail= nuevo;
         return;
     }
+    //CASO HEAD EXISTE
     Node* cab= list->head;
     cab->prev= nuevo;
     nuevo->next= cab;
@@ -117,9 +122,9 @@ void pushBack(List * list, void * data) {
 
 // 5. Programe la función void pushCurrent(List * list, void* data), la cual agrega un dato a continuación del nodo apuntado por list->current.
 
-void pushCurrent(List * list, void * data) { //agrega dato dsps de current
+void pushCurrent(List * list, void * data) {
     //CASO CURRENT = NULL
-    if (list->current == NULL) return; //creo q hay q actualizar 
+    if (list->current == NULL) return;
     Node* nuevo = createNode(data);
     Node* curr= list->current;
     //CASO CURRENT = TAIL
@@ -129,6 +134,7 @@ void pushCurrent(List * list, void * data) { //agrega dato dsps de current
         list->tail= nuevo;
         return;
     }
+    //CASO CURRENT EXISTE (Y PUEDE QUE ESTÉ EN HEAD)
     nuevo->prev= curr;
     nuevo->next= curr->next;
     curr->next= nuevo;
