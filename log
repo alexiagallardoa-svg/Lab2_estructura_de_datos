@@ -214,3 +214,9 @@ list.c:120:6: note: declared here
   120 | void pushCurrent(List * list, void * data) { //agrega dato dsps de current
       |      ^~~~~~~~~~~
 9d61fae
+Fri Mar 27 01:14:39 AM UTC 2026: 
+ list.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  11|1
+total_score: 50/60
+1332286

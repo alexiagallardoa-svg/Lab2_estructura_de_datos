@@ -119,7 +119,7 @@ void pushBack(List * list, void * data) {
 
 void pushCurrent(List * list, void * data) { //agrega dato dsps de current
     //CASO CURRENT = NULL
-    if (list->current == NULL) return 0; //creo q hay q actualizar 
+    if (list->current == NULL) return; //creo q hay q actualizar 
     Node* nuevo = createNode(data);
     Node* curr= list->current;
     //CASO CURRENT = TAIL
