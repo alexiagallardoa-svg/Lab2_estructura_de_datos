@@ -98,6 +98,11 @@ void * prevList(List * list) { //retorna dato anterior a current y actualiza cur
 
 void pushFront(List * list, void * data) { //agrega dato al inicio | createNode(dato)
     Node* nuevo = createNode(data);
+    //CASO HEAD = NULL
+    if (list->head == NULL){
+        list->head= nuevo;
+        return;
+    }
     Node* cab= list->head;
     cab->prev= nuevo;
     nuevo->next= cab;
