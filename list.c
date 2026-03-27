@@ -117,7 +117,21 @@ void pushBack(List * list, void * data) {
 
 // 5. Programe la función void pushCurrent(List * list, void* data), la cual agrega un dato a continuación del nodo apuntado por list->current.
 
-void pushCurrent(List * list, void * data) {
+void pushCurrent(List * list, void * data) { //agrega dato dsps de current
+    //CASO CURRENT = NULL
+    if (list->current == NULL) return NULL; //creo q hay q actualizar 
+    Node* nuevo = createNode(data);
+    Node* curr= list->current;
+    //CASO CURRENT = TAIL
+    if (curr== list->tail){
+        curr->next= nuevo;
+        nuevo->prev= curr;
+        return;
+    }
+    nuevo->prev= curr;
+    nuevo->next= curr->next;
+    curr->next= nuevo;
+    curr->next->prev= nuevo;
 }
 
 void * popFront(List * list) {
