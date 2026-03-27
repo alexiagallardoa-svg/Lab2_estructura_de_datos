@@ -201,3 +201,16 @@ list.c:120:6: note: declared here
   120 | void pushCurrent(List * list, void * data) { //agrega dato dsps de current
       |      ^~~~~~~~~~~
 a6cef6d
+Fri Mar 27 01:14:11 AM UTC 2026: 
+ list.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:
+list.c: In function ‘pushCurrent’:
+list.c:122:39: error: ‘return’ with a value, in function returning void [-Wreturn-mismatch]
+  122 |     if (list->current == NULL) return 0; //creo q hay q actualizar
+      |                                       ^
+list.c:120:6: note: declared here
+  120 | void pushCurrent(List * list, void * data) { //agrega dato dsps de current
+      |      ^~~~~~~~~~~
+9d61fae
